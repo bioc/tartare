@@ -919,4 +919,5 @@ Here is the compiled output of `sessionInfo()`:
 sessionInfo()
 ```
 
-#References
+# References
+
