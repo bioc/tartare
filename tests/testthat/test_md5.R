@@ -12,10 +12,10 @@ test_that("md5", {
 		FUN.VALUE = "md5=544cdee961107b3e6f755b5401d20b407") 
 
 
-	expect_equal(length(eh.md5), 4)
+	expect_equal(length(eh.md5), 5)
 
-	expect_equal(sum(eh.md5 %in% metadata$Notes), 4)
-	expect_equal(sum(metadata$Notes %in% eh.md5), 4)
+	expect_equal(sum(eh.md5 %in% metadata$Notes), 5)
+	expect_equal(sum(metadata$Notes %in% eh.md5), 5)
 
 })
 
