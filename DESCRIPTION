@@ -2,14 +2,14 @@ Package: tartare
 Type: Package
 Title: Raw ground spectra recorded on Thermo Fisher Scientific mass
     spectrometers
-Version: 1.7.1
+Version: 1.7.2
 Authors@R: c(person(given = "Christian", family = "Panse",
     email = "cp@fgcz.ethz.ch", role = c("aut", "cre"),
     comment = c(ORCID = "0000-0003-1975-3064")),
     person(given = "Tobias", family = "Kockmann",
     email = "Tobias.Kockmann@fgcz.ethz.ch", role = "aut", 
     comment = c(ORCID = "0000-0002-1847-885X")))
-Depends: R (>= 3.6),
+Depends: R (>= 4.1),
     AnnotationHub (>= 2.16),
     ExperimentHub (>= 1.0)
 Imports:
@@ -29,8 +29,7 @@ Description: Provides raw files recorded on different Liquid
   binary file format (.raw). The intention behind tartare is to provide complex
   but slim real-world files that can be used to make code robust with respect
   to this diversity. In other words, it is intended for enhanced unit testing.
-  The package is considered to be used with the
-  rawDiag package (Trachsel, 2018 <doi:10.1021/acs.jproteome.8b00173>) and the
+  The package is considered to be used with the rawrr package and the
   Spectra MsBackends.
 URL: https://github.com/cpanse/tartare
 BugReports: https://github.com/cpanse/tartare/issues

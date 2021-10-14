@@ -1,15 +1,19 @@
 ---
 title: "make-data"
 author:
-- name: Christian Panse
-  affiliation: Functional Genomics Center Zurich
-  email: cp@fgcz.ethz.ch
 - name: Tobias Kockmann
-  affiliation: Functional Genomics Center Zurich
-  email: tobias.Kockmann@fgcz.ethz.ch
+  affiliation:
+    - &id Functional Genomics Center Zurich - Swiss Federal Institute of Technology in Zurich
+  email: Tobias.Kockmann@fgcz.ethz.ch
+- name: Christian Panse
+  affiliation:
+    - *id
+    - Swiss Institute of Bioinformatics
+  email: cp@fgcz.ethz.ch
 package: tartare
 output:
-  BiocStyle::html_document
+  BiocStyle::html_document:
+    toc_float: true
 abstract: |
   The tartare package provides raw files recorded on different Liquid
   Chromatography Mass Spectrometry (LC-MS) instruments. All included MS
@@ -17,12 +21,13 @@ abstract: |
   Orbitrap Tribrid or Q Exactive Orbitrap family of instruments. Despite their
   common origin and shared hardware components (e.g. Orbitrap mass analyser),
   the above instruments tend to write data in different "dialects" in a shared
-  binary file format (.raw). The intention behind tartare is to provide complex
+  binary file format (.raw) [@RawfileReader2015]. The intention behind tartare
+  is to provide complex
   but slim real-world files that can be used to make code robust with respect
   to this diversity. In other words, it is intended for enhanced unit testing.
-  The package is considered to be used with the
-  "*[rawDiag](https://github.com/fgcz/rawDiag)*" package [@Trachsel2018] and the
-  "*[Spectra](https://github.com/rformassspectrometry/Spectra)*" MsBackends.
+  The package is considered to be used with the `r BiocStyle::Biocpkg("rawrr")`
+  package [@Kockmann2021], `r BiocStyle::Biocpkg("Spectra")` and
+  `r BiocStyle::Biocpkg("MsBackendRawFileReader")`.
 vignette: >
   %\VignetteIndexEntry{make and use tartare data}
   %\VignetteEngine{knitr::rmarkdown}
@@ -880,9 +885,10 @@ upload: tartare/20190716_004_PierceHeLa.mzXML to s3://annotation-contributor/tar
 upload: tartare/20190716_004_PierceHeLa.raw to s3://annotation-contributor/tartare/20190716_004_PierceHeLa.raw
 ```
 
-# Loading `r Biocpkg("tartare")` data using Bioconductor `r Biocpkg("ExperimentHub")`
+# Usage
 
-load metadata
+Loading `r Biocpkg("tartare")` data using Bioconductor `r Biocpkg("ExperimentHub")`
+
 
 ```{r}
 (fl <- system.file("extdata", "metadata.csv", package='tartare'))
@@ -910,6 +916,7 @@ query(eh, "tartare")
 # dim(WU160118)
 ```
 
+More example code snippets are shown in the package vignette of the  `r BiocStyle::Biocpkg("MsBackendRawFileReader")` package.
 
 # Session info
 
